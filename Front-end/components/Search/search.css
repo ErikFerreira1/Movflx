@@ -1,0 +1,294 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #0f1017;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+
+  font-weight: bold;
+
+  background-color: transparent;
+  width: 95vw;
+  box-sizing: border-box;
+}
+.navLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  width: 55vw;
+  gap: 15vw;
+}
+.navLinks > li {
+  color: white;
+  text-align: center;
+
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navLinks > li > a {
+  color: white;
+  text-decoration: none;
+}
+.navLinks > li > a:hover {
+  color: #e3d703;
+  transition: 0.7s;
+}
+.navSearch {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navSearch > img {
+  cursor: pointer;
+  width: 30px;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.overlay-content {
+  position: relative;
+  top: 50%;
+  width: 50%;
+  text-align: center;
+
+  margin-top: 30px;
+  margin: auto;
+}
+.overlay-content-btn {
+  color: white;
+}
+.overlay-content-btn:focus {
+  outline: none; /* Remove o contorno de foco */
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
+  cursor: pointer;
+  font-weight: lighter;
+
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #e3d703;
+}
+
+.overlay input[type="text"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  border-bottom: 1px solid #e3d703;
+  float: left;
+  width: 80%;
+  background: transparent;
+}
+
+.overlay button {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: #e3d703;
+  border: none;
+
+  font-size: 17px;
+  cursor: pointer;
+}
+.overlay-content button i {
+  font-size: 30px;
+}
+
+.navLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navLogin > button {
+  width: 100px;
+  height: 50px;
+
+  background-color: transparent;
+  border: 2px solid #e4d804;
+  border-radius: 50px;
+
+  font-size: 17px;
+  font-weight: bold;
+}
+.navLogin > button > a {
+  color: white;
+  text-decoration: none;
+}
+.navRight {
+  display: flex;
+}
+#usernameDisplay {
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+#idlogoutButton {
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+#idlogoutButton > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  padding-left: 3px;
+}
+main {
+  margin-top: 50px;
+  height: 100vh;
+  width: 96vw;
+}
+.titleSearch {
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 1px solid #e3d703;
+  width: 98.2vw;
+}
+.titleSearch > h1 {
+  padding-left: 10px;
+}
+.articleContainerMovie {
+  display: flex;
+  flex-direction: column;
+
+  width: 303px;
+  padding: 20px;
+}
+.articleContainerMovie img {
+  width: 303px;
+  height: 454.5px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.articleInfoMovie {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  color: #fff;
+  align-items: baseline;
+}
+.articleInfoMovie > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.articleInfoMovie > div > h1 {
+  font-size: 17px;
+}
+.articleInfoMovie > div > h1 > img {
+  width: 15px;
+  height: 15px;
+  padding-right: 5px;
+}
+
+.articleInfoMovie > div > h4 {
+  padding-left: 55px;
+  color: #e3d703;
+}
+.articleInfoMovie > div > h5 {
+  font-size: 15px;
+  margin: 0px;
+  float: right;
+}
+#infos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media screen {
+  .hamburger {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1145px) {
+  .navLinks {
+    gap: 12vw;
+  }
+  .navLogin {
+    padding-right: 15px;
+  }
+
+  .titleMainBanner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .titleMainBanner > h4 {
+    font-size: 25px;
+  }
+  .titleMainBanner > h3 {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .footerLogo {
+    display: none;
+  }
+  .titleSearch {
+    width: 95vw;
+  }
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 20px 0;
+  }
+
+  .navLinks.active {
+    display: flex;
+
+    background-color: #16161c59;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  .navLinks.active {
+    display: flex;
+    background-color: #16161c59;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .navLogo > a > img {
+    display: none;
+  }
+}

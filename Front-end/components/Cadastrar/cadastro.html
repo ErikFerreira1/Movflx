@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css" />
+    <script src="cadastro.js"></script>
+  </head>
+  <body>
+    <div class="mainDiv">
+      <main>
+        <div class="logoTop">
+          <h1><a href="../../index.html">MOVFLX</a></h1>
+
+          <div class="loginImageTop">
+            <h2>CADASTRAR</h2>
+            <div>
+              <form
+                class="CadastroInterface"
+                id="registerForm"
+                action="/auth/register"
+                method="post"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Nome de usuário"
+                  maxlength="12"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Senha"
+                  min="6"
+                />
+                <input type="submit" value="Cadastrar" id="registerButton" />
+                <div class="loginGoogle">
+                  <span><hr /></span>
+                  <h2>OU</h2>
+                  <h3>
+                    JÁ POSSUI CONTA?
+                    <span><a href="../Login/login.html">ENTRE</a></span>
+                  </h3>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

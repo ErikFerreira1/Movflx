@@ -1,0 +1,385 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #1b242d;
+}
+nav {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+
+  font-weight: bold;
+
+  background-color: transparent;
+
+  width: 100%;
+  max-width: 96vw;
+  box-sizing: border-box;
+}
+.navLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  width: 55vw;
+  gap: 15vw;
+}
+.navLinks > li {
+  color: white;
+  text-align: center;
+
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navLinks > li > a {
+  color: white;
+  text-decoration: none;
+}
+.navLinks > li > a:hover {
+  color: #e3d703;
+  transition: 0.7s;
+}
+.navSearch {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.navSearch > img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.overlay-content {
+  position: relative;
+  top: 50%;
+  width: 50%;
+  text-align: center;
+
+  margin-top: 30px;
+  margin: auto;
+}
+.overlay-content-btn {
+  color: white;
+}
+.overlay-content-btn:focus {
+  outline: none;
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
+  cursor: pointer;
+  font-weight: lighter;
+
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #e3d703;
+}
+
+.overlay input[type="text"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  border-bottom: 1px solid #e3d703;
+  float: left;
+  width: 80%;
+  background: transparent;
+}
+
+.overlay button {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: #e3d703;
+  border: none;
+
+  font-size: 17px;
+  cursor: pointer;
+}
+.overlay-content button i {
+  font-size: 30px;
+}
+
+.navLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loginButton {
+  width: 100px;
+  height: 50px;
+
+  background-color: transparent;
+  border: 2px solid #e4d804;
+  border-radius: 50px;
+
+  font-size: 17px;
+  font-weight: bold;
+}
+.navLogin > button > a {
+  color: white;
+  text-decoration: none;
+}
+.navRight {
+  display: flex;
+}
+#usernameDisplay {
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+#idlogoutButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#idlogoutButton > img {
+  width: 30px;
+  height: 30px;
+  padding-left: 5px;
+}
+.mainBannerIntro {
+  padding: 42.4vh 0 46vh;
+  background-image: url(../../assets/banner_bg03.png);
+  background-position: center;
+  background-size: cover;
+}
+.titleMainBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titleMainBanner > h2 {
+  font-size: 50px;
+  color: #fff;
+  margin: 0px;
+}
+.mainAbout {
+  background-image: url(../../assets/contact_bg.jpg);
+  background-position: top center;
+  background-size: cover;
+  height: 70%;
+  padding: 150px 0px;
+}
+.mainAboutTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mainAboutTitle > h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  width: 100%;
+  max-width: 1000px;
+  border-bottom: 2px solid #e3d703;
+  box-sizing: border-box;
+}
+
+.mainAboutInfos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mainAboutInfos > h2 {
+  text-align: justify;
+  color: #fff;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+footer {
+  background-image: url(../../assets/footer_bg.jpg);
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+  height: 40px;
+  padding: 6vh 20vw;
+}
+.footerLinks {
+  display: flex;
+}
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footerNav > li {
+  list-style-type: none;
+}
+.footerNav > li > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #bcbcbc;
+}
+.footerNav > li > a:hover {
+  color: #e3d703;
+  transition: 0.7s;
+}
+.footerSection {
+  background-image: url(../../assets/footer_bg.jpg);
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 2vh 20vw;
+}
+.footerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: -30px;
+  margin-bottom: 50px;
+}
+.footerInfo > li {
+  list-style-type: none;
+}
+.footerInfo > li > a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #bcbcbc;
+  font-size: 13px;
+}
+
+.socialMedia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.socialMedia > li {
+  list-style-type: none;
+}
+.socialMedia > li > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #bcbcbc;
+  font-size: 13px;
+}
+.copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  height: 60px;
+  background-color: #171b22;
+  font-size: 13px;
+  color: #bcbcbc;
+  line-height: 24px;
+}
+.copy > h3 > a {
+  text-decoration: none;
+  color: #e4d804;
+}
+@media screen {
+  .hamburger {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1145px) {
+  .navLinks {
+    gap: 12vw;
+  }
+  .navLogin {
+    padding-right: 15px;
+  }
+
+  .titleMainBanner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .titleMainBanner > h4 {
+    font-size: 25px;
+  }
+  .titleMainBanner > h3 {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .footerLogo {
+    display: none;
+  }
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 20px 0;
+  }
+
+  .navLinks.active {
+    display: flex;
+
+    background-color: #16161c59;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  .navLinks.active {
+    display: flex;
+    background-color: #16161c59;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .navLogo > a > img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .mainAboutTitle > h1,
+  .mainAboutInfos > h2 {
+    width: 90%;
+  }
+  .mainAboutInfos {
+    width: 90%;
+  }
+}

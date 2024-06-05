@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <script src="login.js"></script>
+  </head>
+  <body>
+    <div class="mainDiv">
+      <main>
+        <div class="logoTop">
+          <h1><a href="../../index.html">MOVFLX</a></h1>
+
+          <div class="loginImageTop">
+            <h2>BEM-VINDO</h2>
+            <div>
+              <form
+                class="loginInterface"
+                id="loginForm"
+                action="http://127.0.0.1:3000/auth/login"
+                method="post"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  id="loginEmail"
+                  placeholder="Email"
+                />
+                <input
+                  type="password"
+                  name="password"
+                  id="loginPassword"
+                  placeholder="Senha"
+                />
+                <input type="submit" value="Entrar" id="entrar" />
+              </form>
+            </div>
+            <div class="loginGoogle">
+              <span><hr /></span>
+              <h2>OU</h2>
+              <h3>
+                NÃO FAZ PARTE AINDA?
+                <span
+                  ><a href="../Cadastrar/cadastro.html">CADASTRE-SE</a></span
+                >
+              </h3>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

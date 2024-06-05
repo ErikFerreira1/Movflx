@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filme</title>
+    <link rel="stylesheet" href="movie.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="movie.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="navLogo">
+        <a href="../../index.html"
+          ><img src="../../assets/logo.png" alt="logo"
+        /></a>
+      </div>
+      <div>
+        <ul class="navLinks">
+          <li><a href="../../index.html">HOME</a></li>
+          <li><a href="../About/about.html">SOBRE</a></li>
+          <li><a href="../Contact/contact.html">ENCONTRE</a></li>
+        </ul>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <div class="navRight">
+        <div id="myOverlay" class="overlay">
+          <span class="closebtn" onclick="closeSearch()" title="Close Overlay">
+            ×
+          </span>
+          <div class="overlay-content">
+            <form id="searchForm" action="../Search/search.html" method="get">
+              <input
+                class="overlay-content-btn"
+                type="text"
+                placeholder="Search.."
+                id="searchInput"
+                name="search"
+              />
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="navSearch">
+          <img
+            onclick="openSearch()"
+            src="../../assets/lupa.png"
+            alt="pesquisa"
+          />
+        </div>
+        <div class="navLogin">
+          <button type="button" id="loginButton">
+            <a href="../Login/login.html">LOGIN</a>
+          </button>
+          <div id="usernameDisplay"></div>
+          <button id="idlogoutButton">
+            <img src="../../assets/sair.png" alt="sair">
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="mainBannerIntro" id="mainBannerIntro"></div>
+      <div class="posterMovie"></div>
+      <div class="titleMovie">
+        <h1 id="titleMovie-ch"></h1>
+        <div class="movieSynopsis">
+          <p id="movieSynopsis-ch"></p>
+        </div>
+        <div class="infosMovie">
+          <p id="genrer"></p>
+          <div id="infosMovie-child">
+            <p id="rating"></p>
+            <p>•</p>
+            <p id="time"></p>
+            <p>•</p>
+            <p id="release"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

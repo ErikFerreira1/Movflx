@@ -1,0 +1,157 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #1b242d;
+  background-image: url(assets/back1.jpg);
+}
+.mainDiv {
+  background-color: #02020296;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.753);
+  width: 500px;
+  justify-items: center;
+  height: 580px;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid #e3d703;
+}
+.logoTop {
+  width: 500px;
+}
+.logoTop > h1 {
+  font-size: 40px;
+  color: #e3d703;
+  text-align: center;
+}
+.logoTop > h1 > a {
+  text-decoration: none;
+  font-size: 40px;
+  color: #e3d703;
+  text-align: center;
+}
+.loginImageTop {
+  display: flex;
+  flex-direction: column;
+  padding-top: 35px;
+}
+.loginImageTop > h2 {
+  font-size: 32px;
+  width: 400px;
+  text-align: center;
+  color: #fff;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+.loginInterface {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+  padding-top: 25px;
+  margin: auto;
+}
+#loginEmail,
+#loginPassword {
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+#entrar {
+  width: 400px;
+  height: 47px;
+  border-radius: 10px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: #e3d703;
+  cursor: pointer;
+}
+.loginGoogle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+.loginGoogle > span {
+  padding-top: 15px;
+}
+.loginGoogle > span > hr {
+  width: 400px;
+  color: #fff;
+}
+.loginGoogle > h2 {
+  position: absolute;
+  margin-bottom: 70px;
+  background-color: rgba(0, 0, 0, 0.849);
+  color: white;
+}
+.loginGoogle > h3 {
+  width: 400px;
+  padding-left: 10px;
+  color: #fff;
+}
+.loginGoogle > h3 > span > a {
+  text-decoration: none;
+  color: #e3d703;
+}
+@media only screen and (max-width: 530px) {
+  main {
+    width: 400px;
+  }
+  .loginImageTop > h2 {
+    width: 350px;
+  }
+  .loginInterface {
+    width: 340px;
+  }
+  #entrar {
+    width: 340px;
+  }
+  .loginGoogle > span > hr {
+    width: 350px;
+  }
+  .loginGoogle > h2 {
+    margin-bottom: 98px;
+  }
+  .loginGoogle > h3 {
+    padding-left: 0px;
+    width: 334px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  main {
+    width: 350px;
+  }
+  .loginImageTop > h2 {
+    width: 320px;
+  }
+  .loginInterface {
+    width: 300px;
+  }
+  #entrar {
+    width: 300px;
+  }
+  .loginGoogle > span > hr {
+    width: 320px;
+  }
+  .loginGoogle > h2 {
+    margin-bottom: 97px;
+  }
+  .loginGoogle > h3 {
+    width: 330px;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movieflx</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="navLogo">
+        <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+      </div>
+      <div>
+        <ul class="navLinks">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="components/About/about.html">SOBRE</a></li>
+          <li><a href="components/Contact/contact.html">ENCONTRE</a></li>
+        </ul>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+      <div class="navRight">
+        <div id="myOverlay" class="overlay">
+          <span class="closebtn" onclick="closeSearch()" title="Close Overlay">
+            ×
+          </span>
+          <div class="overlay-content">
+            <form
+              id="searchForm"
+              action="components/Search/search.html"
+              method="get"
+            >
+              <input
+                class="overlay-content-btn"
+                type="text"
+                placeholder="Search.."
+                id="searchInput"
+                name="search"
+              />
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="navSearch">
+          <img onclick="openSearch()" src="assets/lupa.png" alt="pesquisa" />
+        </div>
+        <div class="navLogin">
+          <button type="button" id="loginButton">
+            <a href="components/Login/login.html">LOGIN</a>
+          </button>
+          <div id="usernameDisplay"></div>
+          <button id="idlogoutButton">
+            <img src="assets/sair.png" alt="sair" />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="mainBannerIntro">
+        <div class="titleMainBanner">
+          <h2>MOVFLX</h2>
+          <h3>Explore, <span>encontre</span>, assista!</h3>
+          <h4>Sua jornada cinematográfica começa aqui</h4>
+        </div>
+      </div>
+      <article>
+        <div class="mainArticle">
+          <div class="articleTitle">
+            <h2>Os mais <span>populares</span></h2>
+          </div>
+          <div id="popularMovies" class="articleContainer"></div>
+        </div>
+      </article>
+
+      <article>
+        <div class="mainArticle">
+          <div class="articleTitle">
+            <h2>Melhores <span>avaliações</span></h2>
+          </div>
+          <div id="topRatedMovies" class="articleContainer"></div>
+        </div>
+      </article>
+      <footer>
+        <div class="footer">
+          <div class="footerLogo">
+            <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+          </div>
+          <div class="footerLinks">
+            <ul class="footerNav">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">SOBRE</a></li>
+              <li><a href="#">ENCONTRE</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footerSection">
+          <div class="footerLinksHelp">
+            <ul class="footerInfo">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">AJUDA</a></li>
+              <li><a href="#">TERMOS</a></li>
+              <li><a href="#">PRIVACIDADE</a></li>
+            </ul>
+          </div>
+          <div class="footerSocial">
+            <ul class="socialMedia">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Whatsapp</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>
+            Copyright © 2024. Todos os direitos reservados para
+            <a href="https://github.com/ErikFerreira1">Erik Ferreira</a>
+          </h3>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
