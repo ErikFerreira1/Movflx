@@ -118,13 +118,11 @@ app.post("/auth/login", async (req, res) => {
       secret
     );
 
-    res
-      .status(200)
-      .json({
-        msg: "Autenticação realizada com sucesso",
-        token,
-        username: user.name,
-      });
+    res.status(200).json({
+      msg: "Autenticação realizada com sucesso",
+      token,
+      username: user.name,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Aconteceu um erro no servidor!" });
@@ -135,7 +133,9 @@ const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
 
 mongoose
-  .connect(`mongodb+srv://${dbUser}:${dbPassword}@authjwt.pjqqpic.mongodb.net/`)
+  .connect(
+    `mongodb+srv://${dbUser}:${dbPassword}@authjwt.pjqqpic.mongodb.net/movflx`
+  )
   .then(() => {
     app.listen(3000);
     console.log("Conectou ao banco");
