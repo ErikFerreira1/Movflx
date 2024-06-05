@@ -11,8 +11,11 @@ app.use(express.json());
 app.use(cors());
 const User = require("./models/User");
 
+app.use(express.static(path.join(__dirname, "Front-end")));
+
+
 app.get("/", (req, res) => {
-  res.status(200).json({ msg: "Bem-vindo a API!" });
+  res.sendFile(path.join(__dirname, "Front-end", "index.html"));
 });
 
 app.get("/user/:id", checkToken, async (req, res) => {
