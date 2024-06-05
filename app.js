@@ -131,13 +131,12 @@ app.post("/auth/login", async (req, res) => {
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
-
+const PORT = process.env.PORT || 3000;
 mongoose
   .connect(
     `mongodb+srv://${dbUser}:${dbPassword}@authjwt.pjqqpic.mongodb.net/movflx`
   )
-  .then(() => {
-    app.listen(3000);
-    console.log("Conectou ao banco");
+  .then(PORT, () => {
+    console.log("Conectou ao banco. Porta:", PORT);
   })
   .catch((err) => console.log(err));
