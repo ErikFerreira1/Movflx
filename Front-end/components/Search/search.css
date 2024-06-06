@@ -287,6 +287,11 @@ main {
     background-color: #16161c59;
   }
 }
+@media screen and (max-width: 478px) {
+  .navLogo > a > img {
+    display: none;
+  }
+}
 @media only screen and (max-width: 390px) {
   .navLogo > a > img {
     display: none;

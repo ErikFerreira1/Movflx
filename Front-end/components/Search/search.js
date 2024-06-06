@@ -6,8 +6,8 @@ function closeSearch() {
   document.getElementById("myOverlay").style.display = "none";
 }
 function toggleMenu() {
-  const navLinks = document.querySelector('.navLinks');
-  navLinks.classList.toggle('active');
+  const navLinks = document.querySelector(".navLinks");
+  navLinks.classList.toggle("active");
 }
 
 function getParameterByName(name, url) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const loginButton = document.getElementById("loginButton");
       const usernameDisplay = document.getElementById("usernameDisplay");
       const logout = document.getElementById("idlogoutButton");
-  
+
       if (token && username) {
         loginButton.style.display = "none";
         usernameDisplay.innerText = "Olá, " + username;
@@ -39,11 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
         usernameDisplay.style.display = "none";
       }
     }
-  
+
     checkAuth();
-
-
-
 
     const searchQuery = getParameterByName("search");
     const infos = document.getElementById("infos");
@@ -67,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      const sortedMovies = searchData.results.sort(
+        (a, b) => b.vote_average - a.vote_average
+      );
+
       for (const filme of searchData.results) {
         const movieUrl = `https://api.themoviedb.org/3/movie/${filme.id}?api_key=${apiKey}&language=pt-BR`;
         const movieResponse = await fetch(movieUrl);
@@ -76,69 +77,73 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const movieData = await movieResponse.json();
-     
-        const articleContainer = document.createElement("div");
-        articleContainer.classList.add("articleContainer");
 
-        const articleContainerMovie = document.createElement("div");
-        articleContainerMovie.classList.add("articleContainerMovie");
+        if (movieData.runtime > 60) {
+          const articleContainer = document.createElement("div");
+          articleContainer.classList.add("articleContainer");
 
-        const linkImgMovie = document.createElement("a");
-        linkImgMovie.onclick = function () {
-          sessionStorage.setItem("movieID", movieData.id);
-          window.location.href = "../Movie/movie.html";
-        };
+          const articleContainerMovie = document.createElement("div");
+          articleContainerMovie.classList.add("articleContainerMovie");
 
-        const imagemFilme = document.createElement("img");
-        imagemFilme.src = movieData.poster_path
-          ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
-          : "../../assets/noimage.jpg";
-        imagemFilme.alt = "posterMovie";
-        linkImgMovie.appendChild(imagemFilme);
+          const linkImgMovie = document.createElement("a");
+          linkImgMovie.onclick = function () {
+            sessionStorage.setItem("movieID", movieData.id);
+            window.location.href = "../Movie/movie.html";
+          };
 
-        const articleInfoMovie = document.createElement("div");
-        articleInfoMovie.classList.add("articleInfoMovie");
+          const imagemFilme = document.createElement("img");
+          imagemFilme.src = movieData.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
+            : "../../assets/noimage.jpg";
+          imagemFilme.alt = "posterMovie";
+          linkImgMovie.appendChild(imagemFilme);
 
-        const titleContainer = document.createElement("div");
-        const title = document.createElement("h3");
-        title.innerText = movieData.title;
-        titleContainer.appendChild(title);
+          const articleInfoMovie = document.createElement("div");
+          articleInfoMovie.classList.add("articleInfoMovie");
 
-        const ratingContainer = document.createElement("div");
-        const rating = document.createElement("h1");
+          const titleContainer = document.createElement("div");
+          const title = document.createElement("h3");
+          title.innerText = movieData.title;
+          titleContainer.appendChild(title);
 
-        const starImage = document.createElement("img");
-        starImage.src = "../../assets/estrela.png";
-        starImage.alt = "Estrela";
-        rating.appendChild(starImage);
-        rating.appendChild(
-          document.createTextNode(parseFloat(movieData.vote_average).toFixed(2))
-        );
+          const ratingContainer = document.createElement("div");
+          const rating = document.createElement("h1");
 
-        const detailsContainer = document.createElement("div");
+          const starImage = document.createElement("img");
+          starImage.src = "../../assets/estrela.png";
+          starImage.alt = "Estrela";
+          rating.appendChild(starImage);
+          rating.appendChild(
+            document.createTextNode(
+              parseFloat(movieData.vote_average).toFixed(2)
+            )
+          );
 
-        const year = document.createElement("h4");
-        year.innerText = movieData.release_date.substring(0, 4);
+          const detailsContainer = document.createElement("div");
 
-        detailsContainer.appendChild(year);
+          const year = document.createElement("h4");
+          year.innerText = movieData.release_date.substring(0, 4);
 
-        titleContainer.appendChild(rating);
-        titleContainer.appendChild(ratingContainer);
-        articleInfoMovie.appendChild(titleContainer);
-        articleInfoMovie.appendChild(detailsContainer);
+          detailsContainer.appendChild(year);
 
-        articleContainerMovie.appendChild(linkImgMovie);
-        articleContainerMovie.appendChild(articleInfoMovie);
+          titleContainer.appendChild(rating);
+          titleContainer.appendChild(ratingContainer);
+          articleInfoMovie.appendChild(titleContainer);
+          articleInfoMovie.appendChild(detailsContainer);
 
-        articleContainer.appendChild(articleContainerMovie);
+          articleContainerMovie.appendChild(linkImgMovie);
+          articleContainerMovie.appendChild(articleInfoMovie);
 
-        infos.appendChild(articleContainer);
+          articleContainer.appendChild(articleContainerMovie);
+
+          infos.appendChild(articleContainer);
+        }
       }
     } catch (error) {
       console.error("Ocorreu um erro", error);
     }
   }
-    document
+  document
     .getElementById("idlogoutButton")
     .addEventListener("click", function () {
       localStorage.removeItem("token");

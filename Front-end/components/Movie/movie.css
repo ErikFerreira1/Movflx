@@ -224,6 +224,9 @@ main {
 #infosMovie-child > h1 {
   font-size: 18px;
 }
+span {
+  align-self: center;
+}
 @media screen {
   .hamburger {
     display: none;
@@ -231,22 +234,22 @@ main {
 }
 @media only screen and (max-width: 1500px) {
   .mainBannerIntro {
-    width: 98.5vw;
+    width: 100vw;
   }
 }
 @media only screen and (max-width: 1250px) {
   .mainBannerIntro {
-    width: 98.5vw;
+    width: 100vw;
   }
 }
 @media only screen and (max-width: 1000px) {
   .mainBannerIntro {
-    width: 98vw;
+    width: 100vw;
   }
 }
 @media only screen and (max-width: 900px) {
   .mainBannerIntro {
-    width: 97.8vw;
+    width: 100vw;
   }
   .posterMovie > img {
     display: none;
@@ -306,9 +309,7 @@ main {
     color: white;
     cursor: pointer;
   }
-  .mainBannerIntro {
-    width: 97.8vw;
-  }
+
   .posterMovie > img {
     display: none;
   }
@@ -325,25 +326,37 @@ main {
 }
 @media only screen and (max-width: 750px) {
   .mainBannerIntro {
-    width: 97.3vw;
+    width: 100vw;
   }
 }
-@media only screen and (max-width: 630px) {
-  .mainBannerIntro {
-    width: 96.8vw;
+@media only screen and (max-width: 550px) {
+  #infosMovie-child {
+    flex-direction: column;
+    gap: 0px;
+    
+  }
+  span {
+    display: none;
+    
   }
 }
-@media only screen and (max-width: 516px) {
-  .mainBannerIntro {
-    width: 96vw;
-  }
-}
+
 @media only screen and (max-width: 478px) {
   .titleMovie {
     padding: 0px;
   }
   .mainBannerIntro {
-    width: 94.8vw;
+    width: 100vw;
+  }
+  #movieSynopsis-ch {
+    
+    width: 60vw;
+  }
+  .infosMovie {
+    width: 60vw;
+  }
+  .navLogo > a > img {
+    display: none;
   }
 }
 @media only screen and (max-width: 390px) {

@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const response = await fetch(popularUrl);
     const data = await response.json();
 
-    return data.results;
+    const sortedPopularMovies = data.results.sort((a, b) => b.vote_average - a.vote_average);
+
+    return sortedPopularMovies;
   }
 
   async function displayMovies(containerId, movies) {

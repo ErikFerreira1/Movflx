@@ -191,17 +191,17 @@ body {
     font-weight: bold;
     background-color: transparent;
     color:  #fff;
-    border: 1px solid #e3d703;
+    border: 1px solid white;
     cursor: pointer;
   }
   #genre > option{
     font-weight: bold;
     background-color: #151c24;
     color:  #fff;
-    border: 2px solid #e3d703;
+  
   }
   #genre:hover{
-    border: 1px solid white;
+    border: 1px solid #e3d703;
   }
   #releaseYear {
     height: 28px;
@@ -213,11 +213,11 @@ body {
     font-weight: bold;
     background-color: transparent;
     color:  #fff;
-    border: 1px solid #e3d703;
+    border: 1px solid white;
    
   }
   #releaseYear:hover, #startYear:hover, #endYear:hover{
-    border: 1px solid white;
+    border: 1px solid #e3d703;
   }
   #startYear, #endYear {
     height: 28px;
@@ -229,7 +229,7 @@ body {
     font-weight: bold;
     background-color: transparent;
     color:  #fff;
-    border: 1px solid #e3d703;
+    border: 1px solid white;
    
   }
 
@@ -243,11 +243,11 @@ body {
     font-weight: bold;
     background-color: transparent;
     color:  #fff;
-    border: 1px solid #e3d703;
+    border: 1px solid white;
     cursor: pointer;
   }
   #Buscar:hover, #clearButton:hover{
-    border: 1px solid white;
+    border: 1px solid #e3d703;
   }
   #results {
     display: flex;
@@ -309,7 +309,7 @@ body {
     padding-left: 35px;
   }
   #highRating.active {
-    border: 1px solid white; 
+    border: 1px solid #e3d703; 
    
   }
   
@@ -323,11 +323,11 @@ body {
     font-weight: bold;
     background-color: transparent;
     color: #ffffff;
-    border: 1px solid #e3d703;
+    border: 1px solid white;
     cursor: pointer;
   }
   #highRating:hover{
-    border: 1px solid white;
+    border: 1px solid #e3d703;
   }
  
 
@@ -383,6 +383,11 @@ body {
       font-size: 30px;
       color: white;
       cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 478px) {
+    .navLogo > a > img {
+      display: none;
     }
   }
   @media only screen and (max-width: 390px) {
