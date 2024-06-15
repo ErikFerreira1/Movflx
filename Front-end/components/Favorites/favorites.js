@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
 
       const data = await response.json();
-      alert("Filme removido dos favoritos!");
+    
     } catch (error) {
       console.error("Erro ao remover filme dos favoritos:", error);
     }
