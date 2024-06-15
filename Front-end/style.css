@@ -4,6 +4,7 @@ body {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   background-color: #1b242d;
+  overflow-x: hidden;
 }
 nav {
   position: absolute;
@@ -17,7 +18,6 @@ nav {
   background-color: transparent;
 
   width: 100%;
-  max-width: 96vw;
   box-sizing: border-box;
 }
 .navLogo {
@@ -125,6 +125,26 @@ nav {
 }
 .overlay-content button i {
   font-size: 30px;
+}
+#favoritePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+}
+
+#favoritePage > a > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+}
+#favoritePage > a > img:hover {
+  transition: 0.5s;
+  transform: scale(1.1);
 }
 
 .navLogin {
@@ -370,7 +390,7 @@ footer {
   }
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 930px) {
   .footerLogo {
     display: none;
   }

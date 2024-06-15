@@ -6,15 +6,22 @@
     <title>Pesquisa</title>
     <link rel="stylesheet" href="search.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="search.js"></script>
+    <link
+      rel="shortcut icon"
+      href="../../assets/favicon.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <nav>
       <div class="navLogo">
-        <a href="../../index.html"><img src="../../assets/logo.png" alt="logo" /></a>
+        <a href="../../index.html"
+          ><img src="../../assets/logo.png" alt="logo"
+        /></a>
       </div>
       <div>
         <ul class="navLinks">
@@ -32,7 +39,13 @@
           </span>
           <div class="overlay-content">
             <form id="searchForm" action="search.html" method="get">
-              <input class="overlay-content-btn" type="text" placeholder="Search.." id="searchInput" name="search" />
+              <input
+                class="overlay-content-btn"
+                type="text"
+                placeholder="Busque um filme..."
+                id="searchInput"
+                name="search"
+              />
               <button type="submit">
                 <i class="fa fa-search"></i>
               </button>
@@ -40,15 +53,24 @@
           </div>
         </div>
         <div class="navSearch">
-          <img onclick="openSearch()" src="../../assets/lupa.png" alt="pesquisa" /> 
+          <img
+            onclick="openSearch()"
+            src="../../assets/lupa.png"
+            alt="pesquisa"
+          />
         </div>
+        <button id="favoritePage">
+          <a id="favoritePage_ch" href="../Favorites/favorites.html"
+            ><img src="../../assets/coracaoVazio.png" alt="Favoritos"
+          /></a>
+        </button>
         <div class="navLogin">
           <button type="button" id="loginButton">
             <a href="../Login/login.html">LOGIN</a>
           </button>
           <div id="usernameDisplay"></div>
           <button id="idlogoutButton">
-            <img src="../../assets/sair.png" alt="sair">
+            <img src="../../assets/sair.png" alt="sair" />
           </button>
         </div>
       </div>

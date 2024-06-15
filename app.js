@@ -7,14 +7,20 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const path = require("path");
 const app = express();
-
 app.use(express.json());
 app.use(cors());
 const User = require("./models/User");
 
-
 app.use(express.static(path.join(__dirname, "Front-end")));
 
+function getUserIdFromToken(token) {
+  const decodedToken = jwt.decode(token);
+  if (decodedToken) {
+    return decodedToken.id;
+  } else {
+    return null;
+  }
+}
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "Front-end", "index.html"));
@@ -83,6 +89,113 @@ app.post("/auth/register", async (req, res) => {
   try {
     await user.save();
     res.status(201).json({ msg: "Usuário criado com sucesso!" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Aconteceu um erro no servidor!" });
+  }
+});
+
+app.get("/favorites/:userId", checkToken, async (req, res) => {
+  const token = req.headers["authorization"].split(" ")[1];
+  const userId = getUserIdFromToken(token);
+
+  if (!userId) {
+    return res.status(400).json({ msg: "Parâmetros inválidos." });
+  }
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ msg: "Usuário não encontrado!" });
+    }
+
+    res.status(200).json({ favorites: user.favorites });
+  } catch (error) {
+    console.error("Erro ao buscar favoritos:", error);
+    res.status(500).json({ msg: "Erro ao buscar favoritos" });
+  }
+});
+
+
+
+app.get("/favorites/check/:userId/:movieId", checkToken, async (req, res) => {
+  const token = req.headers["authorization"].split(" ")[1];
+  const userId = getUserIdFromToken(token);
+  const { movieId } = req.params;
+
+  if (!userId || !movieId) {
+    return res.status(400).json({ msg: "Parâmetros inválidos." });
+  }
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ msg: "Usuário não encontrado!" });
+    }
+
+    const isFavorite = user.favorites.includes(movieId);
+    res.status(200).json({ isFavorite });
+  } catch (error) {
+    console.error("Erro ao verificar status do favorito:", error);
+    res.status(500).json({ msg: "Erro ao verificar status do favorito" });
+  }
+});
+
+
+app.post("/favorites/add", checkToken, async (req, res) => {
+  const token = req.headers["authorization"].split(" ")[1];
+  const userId = getUserIdFromToken(token);
+
+  const { movieId } = req.body;
+
+  if (!userId) {
+    return res.status(401).json({ msg: "ID do usuário não encontrado." });
+  }
+
+  try {
+    const user = await User.findById(userId);
+    console.log(user);
+    if (!user) {
+      return res.status(404).json({ msg: "Usuário não encontrado!" });
+    }
+    user.favorites.push(movieId);
+    await user.save();
+
+    res
+      .status(200)
+      .json({ msg: "Filme adicionado aos favoritos com sucesso!" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Aconteceu um erro no servidor!" });
+  }
+});
+
+app.delete("/favorites/remove/:userId/:movieId", checkToken, async (req, res) => {
+  const token = req.headers["authorization"].split(" ")[1];
+  const userId = getUserIdFromToken(token); 
+
+  if (!userId) {
+    return res.status(401).json({ msg: "ID do usuário não encontrado." });
+  }
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ msg: "Usuário não encontrado!" });
+    }
+
+    const movieId = req.params.movieId;
+
+    const index = user.favorites.indexOf(movieId);
+    if (index > -1) {
+      user.favorites.splice(index, 1);
+    }
+    await user.save();
+
+    res.status(200).json({ msg: "Filme removido dos favoritos com sucesso!" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Aconteceu um erro no servidor!" });

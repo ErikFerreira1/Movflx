@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      rel="shortcut icon"
+      href="../../assets/favicon.png"
+      type="image/x-icon"
+    />
     <script src="movie.js"></script>
   </head>
   <body>
@@ -32,20 +37,25 @@
             ×
           </span>
           <div class="overlay-content">
-            <form id="searchForm" action="../Search/search.html" method="get">
+            <form
+              id="navSearchForm"
+              action="../Search/search.html"
+              method="get"
+            >
               <input
                 class="overlay-content-btn"
                 type="text"
-                placeholder="Search.."
+                placeholder="Busque um filme..."
                 id="searchInput"
                 name="search"
               />
-              <button type="submit">
+              <button>
                 <i class="fa fa-search"></i>
               </button>
             </form>
           </div>
         </div>
+
         <div class="navSearch">
           <img
             onclick="openSearch()"
@@ -53,14 +63,19 @@
             alt="pesquisa"
           />
         </div>
+        <button id="favoritePage" ><a id="favoritePage_ch" href="../Favorites/favorites.html"><img src="../../assets/coracaoVazio.png" alt="Favoritos"></a></button>
         <div class="navLogin">
           <button type="button" id="loginButton">
             <a href="../Login/login.html">LOGIN</a>
           </button>
+
           <div id="usernameDisplay"></div>
+
+
           <button id="idlogoutButton">
-            <img src="../../assets/sair.png" alt="sair">
+            <img src="../../assets/sair.png" alt="sair" />
           </button>
+          
         </div>
       </div>
     </nav>
@@ -80,6 +95,16 @@
             <p id="time"></p>
             <span>•</span>
             <p id="release"></p>
+          </div>
+          <div id="favorites">
+            <button id="favoriteButton">
+              <img
+                id="favoritesIcon"
+                src="../../assets/coracaoVazio.png"
+                alt="coração"
+              />
+              <p>Favoritar</p>
+            </button>
           </div>
         </div>
       </div>

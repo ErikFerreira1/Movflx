@@ -22,25 +22,36 @@ function getParameterByName(name, url) {
 
 document.addEventListener("DOMContentLoaded", function () {
   async function search() {
-    function checkAuth() {
-      const token = localStorage.getItem("token");
-      const username = localStorage.getItem("username");
-      const loginButton = document.getElementById("loginButton");
-      const usernameDisplay = document.getElementById("usernameDisplay");
-      const logout = document.getElementById("idlogoutButton");
+  function checkAuth() {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
+    const loginButton = document.getElementById("loginButton");
+    const usernameDisplay = document.getElementById("usernameDisplay");
+    const logout = document.getElementById("idlogoutButton");
+    const favoritePage = document.getElementById("favoritePage");
 
-      if (token && username) {
-        loginButton.style.display = "none";
-        usernameDisplay.innerText = "Olá, " + username;
-        usernameDisplay.style.display = "block";
-      } else {
-        loginButton.style.display = "block";
-        logout.style.display = "none";
-        usernameDisplay.style.display = "none";
-      }
+    if (token && username) {
+      loginButton.style.display = "none";
+      usernameDisplay.innerText = "Olá, " + username;
+      usernameDisplay.style.display = "block";
+    } else {
+      loginButton.style.display = "block";
+      logout.style.display = "none";
+      favoritePage.style.display = "none";
+      usernameDisplay.style.display = "none";
     }
+  }
 
-    checkAuth();
+  checkAuth();
+
+  document
+    .getElementById("idlogoutButton")
+    .addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+
+      window.location.href = "../../index.html";
+    });
 
     const searchQuery = getParameterByName("search");
     const infos = document.getElementById("infos");
@@ -88,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const linkImgMovie = document.createElement("a");
           linkImgMovie.onclick = function () {
             sessionStorage.setItem("movieID", movieData.id);
-            window.location.href = "../Movie/movie.html";
+            window.location.href = `../Movie/movie.html?movieID=${movieData.id}`;
           };
 
           const imagemFilme = document.createElement("img");
@@ -143,14 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Ocorreu um erro", error);
     }
   }
-  document
-    .getElementById("idlogoutButton")
-    .addEventListener("click", function () {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-
-      window.location.href = "../../index.html";
-    });
 
   search();
 });

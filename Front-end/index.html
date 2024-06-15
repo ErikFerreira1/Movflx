@@ -10,6 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="app.js"></script>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
   </head>
   <body>
     <nav>
@@ -39,7 +40,7 @@
               <input
                 class="overlay-content-btn"
                 type="text"
-                placeholder="Search.."
+                placeholder="Busque um filme..."
                 id="searchInput"
                 name="search"
               />
@@ -52,6 +53,7 @@
         <div class="navSearch">
           <img onclick="openSearch()" src="assets/lupa.png" alt="pesquisa" />
         </div>
+        <button id="favoritePage" ><a id="favoritePage_ch" href="components/Favorites/favorites.html"><img src="assets/coracaoVazio.png" alt="Favoritos"></a></button>
         <div class="navLogin">
           <button type="button" id="loginButton">
             <a href="components/Login/login.html">LOGIN</a>

@@ -6,8 +6,8 @@ function closeSearch() {
   document.getElementById("myOverlay").style.display = "none";
 }
 function toggleMenu() {
-  const navLinks = document.querySelector('.navLinks');
-  navLinks.classList.toggle('active');
+  const navLinks = document.querySelector(".navLinks");
+  navLinks.classList.toggle("active");
 }
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = "f7618a55c1d648cc00383ed3b123cffe";
@@ -61,13 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=${genre}&with_runtime.gte=${minDuration}`;
 
     if (startYear !== "" && startYear !== "null") {
-      endYear = 2024;
-    }
-    if (endYear !== "" && endYear !== "null") {
-      startYear = 1900;
-    }
+      endYear = endYear !== "" && endYear !== "null" ? endYear : 2024;
 
-    if (startYear && endYear) {
+      url += `&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${endYear}-12-31`;
+    } else if (endYear !== "" && endYear !== "null") {
+      startYear = 1900;
+
       url += `&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${endYear}-12-31`;
     } else if (releaseYear) {
       url += `&primary_release_year=${releaseYear}`;
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sortByRating) {
       url += `&vote_average.gte=${minRating}`;
     }
-
+    console.log(startYear, endYear);
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -122,42 +121,39 @@ document.addEventListener("DOMContentLoaded", function () {
         const posterPath = movie.poster_path
           ? imageBaseUrl + movie.poster_path
           : "../../assets/noimage.jpg";
-        movieElement.innerHTML = `
-          <a href="../Movie/movie.html"><img src="${posterPath}" alt="${
-          movie.title
-        } poster"></a>
-          <div class="articleInfoMovie">
-            <div class="articleContainerMovie">
-              <div class="articleInfoMovie">
-                <div>
-                  <h3>${movie.title}</h3>
-                  <h3 class="score"><img src="../../assets/estrela.png"> ${movie.vote_average.toFixed(
-                    2
-                  )}</h3>
-                </div>
-                <div>
-                  <h4 class="year">${new Date(
-                    movie.release_date
-                  ).getFullYear()}</h4>
-                </div>
+
+        const movieLink = document.createElement("a");
+        movieLink.href = `../Movie/movie.html?movieID=${movie.id}`;
+        movieLink.innerHTML = `<img src="${posterPath}" alt="${movie.title} poster">`;
+
+        const articleInfoMovie = document.createElement("div");
+        articleInfoMovie.classList.add("articleInfoMovie");
+        articleInfoMovie.innerHTML = `
+          <div class="articleContainerMovie">
+            <div class="articleInfoMovie">
+              <div>
+                <h3>${movie.title}</h3>
+                <h3 class="score"><img src="../../assets/estrela.png"> ${movie.vote_average.toFixed(
+                  2
+                )}</h3>
+              </div>
+              <div>
+                <h4 class="year">${new Date(
+                  movie.release_date
+                ).getFullYear()}</h4>
               </div>
             </div>
           </div>
         `;
 
-        const imageElement = movieElement.querySelector("img");
-        imageElement.addEventListener("click", function (event) {
-          event.preventDefault();
-          sessionStorage.setItem("movieID", movie.id);
-          sessionStorage.setItem("movieTitle", movie.title);
-          sessionStorage.setItem("moviePoster", posterPath);
-          window.location.href = "../Movie/movie.html";
-        });
+        movieElement.appendChild(movieLink);
+        movieElement.appendChild(articleInfoMovie);
 
         resultsDiv.appendChild(movieElement);
       });
     }
   }
+
   highRatingButton.addEventListener("click", function () {
     sortByRating = !sortByRating;
     if (sortByRating) {
@@ -176,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginButton = document.getElementById("loginButton");
     const usernameDisplay = document.getElementById("usernameDisplay");
     const logout = document.getElementById("idlogoutButton");
+    const favoritePage = document.getElementById("favoritePage");
 
     if (token && username) {
       loginButton.style.display = "none";
@@ -184,11 +181,21 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       loginButton.style.display = "block";
       logout.style.display = "none";
+      favoritePage.style.display = "none";
       usernameDisplay.style.display = "none";
     }
   }
 
   checkAuth();
+
+  document
+    .getElementById("idlogoutButton")
+    .addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+
+      window.location.href = "../../index.html";
+    });
   function clearFormFields() {
     document.getElementById("genre").selectedIndex = 0;
     document.getElementById("releaseYear").value = "";
@@ -200,13 +207,4 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("clearButton")
     .addEventListener("click", clearFormFields);
-
-  document
-    .getElementById("idlogoutButton")
-    .addEventListener("click", function () {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-
-      window.location.href = "../../index.html";
-    });
 });

@@ -4,17 +4,19 @@ body {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   background-color: #0f1017;
+  overflow-x: hidden;
 }
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px;
   font-weight: bold;
   background-color: transparent;
 
   position: relative;
   z-index: 1;
+  width: 98vw;
   box-sizing: border-box;
 }
 .navLogo {
@@ -177,7 +179,7 @@ main {
   padding: 295px 0 800px;
   background-position: center;
   background-size: cover;
-  width: 98.9vw;
+  width: 100vw;
   opacity: 0.6;
 
   mask-image: linear-gradient(to top, transparent 10%, black 100%);
@@ -188,7 +190,6 @@ main {
   margin: 100px 50px 0px 50px;
   border-radius: 5px;
 
- 
   user-select: none;
   width: 300px;
   height: 450px;
@@ -196,7 +197,7 @@ main {
 .titleMovie {
   margin-top: 100px;
   width: 31.5vw;
-  
+
   position: relative;
 
   color: white;
@@ -223,6 +224,44 @@ main {
 }
 #infosMovie-child > h1 {
   font-size: 18px;
+}
+#favoritePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+}
+
+#favoritePage > a > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#favoritePage > a > img:hover {
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+#favoriteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  border: none;
+}
+#favoriteButton > p {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+}
+
+#favoriteButton > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 span {
   align-self: center;
@@ -281,7 +320,7 @@ span {
   }
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 930px) {
   .footerLogo {
     display: none;
   }
@@ -333,11 +372,9 @@ span {
   #infosMovie-child {
     flex-direction: column;
     gap: 0px;
-    
   }
   span {
     display: none;
-    
   }
 }
 
@@ -349,7 +386,6 @@ span {
     width: 100vw;
   }
   #movieSynopsis-ch {
-    
     width: 60vw;
   }
   .infosMovie {

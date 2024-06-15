@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginButton = document.getElementById("loginButton");
     const usernameDisplay = document.getElementById("usernameDisplay");
     const logout = document.getElementById("idlogoutButton");
+    const favoritePage = document.getElementById("favoritePage");
 
     if (token && username) {
       loginButton.style.display = "none";
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       loginButton.style.display = "block";
       logout.style.display = "none";
+      favoritePage.style.display = "none";
       usernameDisplay.style.display = "none";
     }
   }

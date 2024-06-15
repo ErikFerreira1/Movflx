@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginButton = document.getElementById("loginButton");
     const usernameDisplay = document.getElementById("usernameDisplay");
     const logout = document.getElementById("idlogoutButton");
+    const favoritePage = document.getElementById("favoritePage");
 
     if (token && username) {
       loginButton.style.display = "none";
@@ -23,11 +24,21 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       loginButton.style.display = "block";
       logout.style.display = "none";
+      favoritePage.style.display = "none";
       usernameDisplay.style.display = "none";
     }
   }
 
   checkAuth();
+
+  document
+    .getElementById("idlogoutButton")
+    .addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+
+      window.location.href = "index.html";
+    });
 
   async function fetchTopRatedMovies() {
     const apiKey = "f7618a55c1d648cc00383ed3b123cffe";
@@ -46,9 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const response = await fetch(popularUrl);
     const data = await response.json();
 
-    const sortedPopularMovies = data.results.sort((a, b) => b.vote_average - a.vote_average);
-
-    return sortedPopularMovies;
+    return data.results;
   }
 
   async function displayMovies(containerId, movies) {
@@ -60,11 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const articleContainerMovie = document.createElement("div");
       articleContainerMovie.classList.add("articleContainerMovie");
 
+    
       const linkImgMovie = document.createElement("a");
-      linkImgMovie.onclick = function () {
-        sessionStorage.setItem("movieID", movie.id);
-        window.location.href = "components/Movie/movie.html";
-      };
+      linkImgMovie.href = `components/Movie/movie.html?movieID=${movie.id}`;
 
       const imagemFilme = document.createElement("img");
       imagemFilme.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
@@ -117,13 +124,4 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchPopularMovies().then((popularMovies) => {
     displayMovies("popularMovies", popularMovies);
   });
-
-  document
-    .getElementById("idlogoutButton")
-    .addEventListener("click", function () {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-
-      window.location.href = "index.html";
-    });
 });

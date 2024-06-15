@@ -7,16 +7,16 @@ body {
   overflow-x: hidden;
 }
 nav {
-  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 30px;
-
   font-weight: bold;
-
-  background-color: transparent;
   width: 98vw;
+  background-color: transparent;
+
+  position: relative;
+  z-index: 1;
   box-sizing: border-box;
 }
 .navLogo {
@@ -55,8 +55,8 @@ nav {
   align-items: center;
 }
 .navSearch > img {
-  cursor: pointer;
   width: 30px;
+  cursor: pointer;
 }
 .overlay {
   height: 100%;
@@ -83,7 +83,7 @@ nav {
   color: white;
 }
 .overlay-content-btn:focus {
-  outline: none;
+  outline: none; /* Remove o contorno de foco */
 }
 .overlay .closebtn {
   position: absolute;
@@ -140,6 +140,10 @@ nav {
   font-size: 17px;
   font-weight: bold;
 }
+.navLogin > button:hover {
+  transition: 0.5s;
+  background-color: #0f1017;
+}
 .navLogin > button > a {
   color: white;
   text-decoration: none;
@@ -164,76 +168,6 @@ nav {
   cursor: pointer;
   padding-left: 3px;
 }
-#titleSearch {
-  color: white;
-  text-transform: uppercase;
-  padding-left: 10px;
-  border-bottom: 1px solid #e3d703;
-}
-#searchGenre {
-  color: #e3d703;
-  text-transform: uppercase;
-  font-size: 20px;
-  padding-left: 10px;
-  padding-right: 3px;
-}
-
-#mainSearchForm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-#genre {
-  height: 30px;
-  width: 200px;
-  border-radius: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: start;
-  font-weight: bold;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid white;
-  cursor: pointer;
-}
-#genre > option {
-  font-weight: bold;
-  background-color: #151c24;
-  color: #fff;
-}
-#genre:hover {
-  border: 1px solid #e3d703;
-}
-#releaseYear {
-  height: 28px;
-  width: 200px;
-  border-radius: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid white;
-}
-#releaseYear:hover,
-#startYear:hover,
-#endYear:hover {
-  border: 1px solid #e3d703;
-}
-#startYear,
-#endYear {
-  height: 28px;
-  width: 120px;
-  border-radius: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid white;
-}
 #favoritePage {
   display: flex;
   flex-direction: column;
@@ -253,26 +187,13 @@ nav {
   transition: 0.5s;
   transform: scale(1.1);
 }
-
-#Buscar,
-#clearButton {
-  height: 32px;
-  width: 100px;
-  border-radius: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid white;
-  cursor: pointer;
+#favoritesContainer {
+  padding-left: 20px;
+  height: 50px;
+  color: white;
+  border-bottom: 1px solid #e3d703;
 }
-#Buscar:hover,
-#clearButton:hover {
-  border: 1px solid #e3d703;
-}
-#results {
+#favorites-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -280,11 +201,28 @@ nav {
   gap: 40px;
   color: white;
 }
-.movie > a > img {
+.favorite-item > a > img {
   width: 303px;
   height: 454.5px;
   border-radius: 6px;
   cursor: pointer;
+}
+.remove-favorite { 
+  padding-top: 20px;
+  border: none;
+  background-color: transparent;
+}
+.remove-favorite > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+  
+  
+}
+.remove-favorite > img:hover {
+  transition: 0.5s;
+  transform: scale(1.2);
 }
 .articleContainer {
   display: flex;
@@ -317,6 +255,25 @@ nav {
   width: 300px;
   color: #fff;
 }
+.articleInfoMovie p {
+  color: #e3d703;
+  font-weight: bold;
+}
+.articleInfoMovie-ch {
+  display: flex;
+  flex-direction: column;
+  
+}
+.articleInfoMovie-ch > h3 {
+  max-width: 240px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+
+
 .articleInfoMovie > div > h3 > img {
   width: 15px;
   height: 15px;
@@ -330,27 +287,6 @@ nav {
   font-size: 15px;
   padding-left: 35px;
 }
-#highRating.active {
-  border: 1px solid #e3d703;
-}
-
-#highRating {
-  height: 30px;
-  width: 150px;
-  border-radius: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid white;
-  cursor: pointer;
-}
-#highRating:hover {
-  border: 1px solid #e3d703;
-}
-
 @media screen {
   .hamburger {
     display: none;
@@ -363,23 +299,9 @@ nav {
   .navLogin {
     padding-right: 15px;
   }
-
-  .titleMainBanner {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .titleMainBanner > h4 {
-    font-size: 25px;
-  }
-  .titleMainBanner > h3 {
-    font-size: 35px;
-  }
 }
 
 @media only screen and (max-width: 930px) {
-  .footerLogo {
-    display: none;
-  }
   .navLinks {
     display: none;
     flex-direction: column;
