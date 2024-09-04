@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function fetchFavoriteMovies() {
     try {
       const response = await fetch(
-        `https://movflx-af1c1ed2a61a.herokuapp.com/favorites/${userId}`,
+        `https://movflx-0b1dabd910cf.herokuapp.com/favorites/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function removeFavoriteMovie(movieId) {
     try {
       const response = await fetch(
-        `https://movflx-af1c1ed2a61a.herokuapp.com/favorites/remove/${userId}/${movieId}`,
+        `https://movflx-0b1dabd910cf.herokuapp.com/favorites/remove/${userId}/${movieId}`,
         {
           method: "DELETE",
           headers: {

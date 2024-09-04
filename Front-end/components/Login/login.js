@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.getElementById("loginPassword").value;
 
       try {
-        const response = await fetch("https://movflx-af1c1ed2a61a.herokuapp.com/auth/login", {
+        const response = await fetch("https://movflx-0b1dabd910cf.herokuapp.com/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
