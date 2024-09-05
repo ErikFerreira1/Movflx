@@ -242,6 +242,7 @@ nav {
   color: #fff;
   width: 100%;
   max-width: 1000px;
+  font-weight: 500;
   box-sizing: border-box;
 }
 footer {

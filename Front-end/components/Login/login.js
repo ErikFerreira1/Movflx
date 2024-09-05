@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } catch (error) {
         console.error("Erro:", error);
-        alert("Ocorreu um erro ao processar o login.");
+        alert("Estamos com problemas na hospedagem. Será resolvido em breve.");
       }
     });
   });
