@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function fetchFavoriteMovies() {
     try {
       const response = await fetch(
-        `https://movflx-0b1dabd910cf.herokuapp.com/favorites/${userId}`,
+        `http://127.0.0.1:3000/favorites/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
