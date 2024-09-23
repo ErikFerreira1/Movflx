@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function checkFavoriteStatus() {
     try {
       const response = await fetch(
-        `https://movflx-0b1dabd910cf.herokuapp.com/favorites/check/${userId}/${movieId}`,
+        `https://movflx.onrender.com/favorites/check/${userId}/${movieId}`,
         {
           method: "GET",
           headers: {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       let response;
       if (favoriteIcon.src.includes("coracaoVazio.png")) {
-        response = await fetch("https://movflx-0b1dabd910cf.herokuapp.com/favorites/add", {
+        response = await fetch("https://movflx.onrender.com/favorites/add", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
       } else {
         response = await fetch(
-          `https://movflx-0b1dabd910cf.herokuapp.com/favorites/remove/${userId}/${movieId}`,
+          `https://movflx.onrender.com/favorites/remove/${userId}/${movieId}`,
           {
             method: "DELETE",
             headers: {

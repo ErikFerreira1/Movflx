@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.getElementById("loginPassword").value;
 
       try {
-        const response = await fetch("https://www.movflx.fun/Front-end/auth/login", {
+        const response = await fetch("https://movflx.onrender.com/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

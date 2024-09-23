@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.getElementById("password").value;
 
       try {
-        const response = await fetch("https://movflx-0b1dabd910cf.herokuapp.com/auth/register", {
+        const response = await fetch("https://movflx.onrender.com/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
